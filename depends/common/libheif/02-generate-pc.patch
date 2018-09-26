@@ -1,0 +1,16 @@
+--- libheif-1.3.2/CMakeLists.txt.orig	2018-09-26 13:32:36.775532361 +0200
++++ libheif-1.3.2/CMakeLists.txt	2018-09-26 13:32:55.119435204 +0200
+@@ -63,3 +63,13 @@
+ 
+ #add_subdirectory (examples)
+ add_subdirectory (libheif)
++
++set(libdir ${CMAKE_INSTALL_PREFIX}/lib)
++set(prefix ${CMAKE_INSTALL_PREFIX})
++set(exec_prefix ${CMAKE_INSTALL_PREFIX})
++set(VERSION 1.0.3)
++set(LIBS ${CMAKE_INSTALL_PREFIX}/lib)
++set(includedir ${CMAKE_INSTALL_PREFIX}/include)
++
++configure_file(libheif.pc.in libheif.pc @ONLY)
++install(FILES ${CMAKE_BINARY_DIR}/libheif.pc DESTINATION lib/pkgconfig)

@@ -1,0 +1,21 @@
+Source: kodi-imagedecoder-heif
+Priority: extra
+Maintainer: Arne Morten Kvarving <cptspiff@gmail.com>
+Build-Depends: debhelper (>= 8.0.0), cmake,
+               kodi-addon-dev, libde265-dev
+Standards-Version: 3.9.2
+Section: libs
+
+Package: kodi-imagedecoder-heif
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: HEIF image decoder for Kodi
+  HEIF image decoder for Kodi
+
+Package: kodi-imagedecoder-heif-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debug symbols for HEIF image decoder for Kodi
+  debug symbols for HEIF image decoder for Kodi

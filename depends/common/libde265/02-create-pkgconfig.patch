@@ -1,0 +1,14 @@
+--- libde265-1.0.3/CMakeLists.txt.orig	2018-09-26 13:27:20.533514531 +0200
++++ libde265-1.0.3/CMakeLists.txt	2018-09-26 13:28:37.416969623 +0200
+@@ -66,3 +66,11 @@
+ add_subdirectory (libde265)
+ add_subdirectory (dec265)
+ add_subdirectory (enc265)
++
++set(libdir ${CMAKE_INSTALL_PREFIX}/lib)
++set(VERSION 1.0.3)
++set(LIBS ${CMAKE_INSTALL_PREFIX}/lib)
++set(includedir ${CMAKE_INSTALL_PREFIX}/include)
++
++configure_file(libde265.pc.in libde265.pc @ONLY)
++install(FILES ${CMAKE_BINARY_DIR}/libde265.pc DESTINATION lib/pkgconfig)

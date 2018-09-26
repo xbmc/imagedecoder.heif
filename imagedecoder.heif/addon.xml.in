@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="imagedecoder.heif"
+  version="1.0.0"
+  name="HEIF image decoder"
+  provider-name="spiff">
+  <requires>@ADDON_DEPENDS@</requires>
+  <extension
+    point="kodi.imagedecoder"
+    library_@PLATFORM@="@LIBRARY_FILENAME@"
+    extension=".heif|.heic"
+    mimetype="image/heif|image/heic"/>
+  <extension point="xbmc.addon.metadata">
+    <summary>libheif based image decoder</summary>
+    <description>libheif based image decoder</description>
+    <platform>@PLATFORM@</platform>
+  </extension>
+</addon>
