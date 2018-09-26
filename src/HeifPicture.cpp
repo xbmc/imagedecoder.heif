@@ -20,11 +20,8 @@
 
 #include <libheif/heif.h>
 #include <stdint.h>
-#include "p8-platform/threads/threads.h"
 
 #include <kodi/addon-instance/ImageDecoder.h>
-
-P8PLATFORM::CMutex mutex;
 
 class HeifPicture : public kodi::addon::CInstanceImageDecoder
 {
@@ -32,22 +29,20 @@ public:
   HeifPicture(KODI_HANDLE instance)
     : CInstanceImageDecoder(instance)
   {
-    P8PLATFORM::CLockObject lock(mutex);
     ctx = heif_context_alloc();
   }
 
   virtual ~HeifPicture()
   {
-    P8PLATFORM::CLockObject lock(mutex);
     if (ctx)
       heif_context_free(ctx);
 
     ctx = nullptr;
   }
 
-  bool LoadImageFromMemory(unsigned char* buffer, unsigned int bufSize, unsigned int& width, unsigned int& height) override
+  bool LoadImageFromMemory(unsigned char* buffer, unsigned int bufSize,
+                           unsigned int& width, unsigned int& height) override
   {
-    P8PLATFORM::CLockObject lock(mutex);
     heif_context_read_from_memory(ctx, buffer, bufSize, nullptr);
     heif_image_handle* handle;
     heif_context_get_primary_image_handle(ctx, &handle);
@@ -60,7 +55,6 @@ public:
               unsigned int width, unsigned int height,
               unsigned int pitch, ImageFormat format) override
   {
-    P8PLATFORM::CLockObject lock(mutex);
     heif_image_handle* handle;
     heif_context_get_primary_image_handle(ctx, &handle);
     heif_image* img;
@@ -69,8 +63,11 @@ public:
                                   : heif_chroma_interleaved_24bit;
     heif_decode_image(handle, &img, heif_colorspace_RGB, fmt, nullptr);
     int stride;
-    const uint8_t* data = heif_image_get_plane_readonly(img, heif_channel_interleaved,&stride);
-    memcpy(pixels, data, width*height*4);
+    const uint8_t* data = heif_image_get_plane_readonly(img, heif_channel_interleaved, &stride);
+    size_t linesize = width*(format == ADDON_IMG_FMT_A8R8G8B8 ? 4 : 3);
+    for (size_t i = 0; i < height; ++i, pixels += linesize, data += stride)
+      memcpy(pixels, data, linesize);
+
     return true;
   }
 
