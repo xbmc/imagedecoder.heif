@@ -1,0 +1,9 @@
+--- libheif-1.3.2/CMakeLists.txt.orig	2018-09-26 15:39:14.655382299 +0200
++++ libheif-1.3.2/CMakeLists.txt	2018-09-26 15:39:21.995363148 +0200
+@@ -61,5 +61,5 @@
+   set(LIBHEIF_LIBRARY_NAME libheif)
+ endif()
+ 
+-add_subdirectory (examples)
++#add_subdirectory (examples)
+ add_subdirectory (libheif)
