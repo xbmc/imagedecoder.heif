@@ -1,6 +1,6 @@
---- libde265-1.0.3/libde265/CMakeLists.txt.orig	2018-09-26 13:15:23.516267928 +0200
-+++ libde265-1.0.3/libde265/CMakeLists.txt	2018-09-26 13:17:46.875933143 +0200
-@@ -72,9 +72,11 @@
+--- libde265-1.0.3/libde265/CMakeLists.txt.orig	2018-04-18 16:35:25.000000000 +0200
++++ libde265-1.0.3/libde265/CMakeLists.txt	2018-09-26 15:25:37.729902565 +0200
+@@ -72,9 +72,12 @@
    add_subdirectory (x86)
  endif()
  
@@ -13,3 +13,4 @@
  endif(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
 +
 +install(TARGETS ${LIBDE265_LIBRARY_NAME} DESTINATION lib)
++install(FILES de265.h de265-version.h DESTINATION include/libde265)
