@@ -61,9 +61,19 @@ public:
     heif_chroma fmt = format == ADDON_IMG_FMT_A8R8G8B8
                                   ? heif_chroma_interleaved_32bit
                                   : heif_chroma_interleaved_24bit;
-    heif_decode_image(handle, &img, heif_colorspace_RGB, fmt, nullptr);
+    struct heif_error error = heif_decode_image(handle, &img,
+                                                heif_colorspace_RGB, fmt, nullptr);
+    if (error.code != heif_error_Ok)
+    {
+      kodi::Log(ADDON_LOG_ERROR, "%s", error.message);
+      return false;
+    }
+
     int stride;
     const uint8_t* data = heif_image_get_plane_readonly(img, heif_channel_interleaved, &stride);
+    if (!data)
+      return false;
+
     size_t linesize = width*(format == ADDON_IMG_FMT_A8R8G8B8 ? 4 : 3);
     for (size_t i = 0; i < height; ++i, pixels += linesize, data += stride)
       memcpy(pixels, data, linesize);
