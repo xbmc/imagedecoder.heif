@@ -14,3 +14,17 @@
 +
 +install(TARGETS ${LIBDE265_LIBRARY_NAME} DESTINATION lib)
 +install(FILES de265.h de265-version.h DESTINATION include/libde265)
+--- a/libde265/de265.h
++++ b/libde265/de265.h
+@@ -38,9 +38,9 @@
+ 
+ #if defined(_MSC_VER) && !defined(LIBDE265_STATIC_BUILD)
+   #ifdef LIBDE265_EXPORTS
+-  #define LIBDE265_API __declspec(dllexport)
++  #define LIBDE265_API
+   #else
+-  #define LIBDE265_API __declspec(dllimport)
++  #define LIBDE265_API
+   #endif
+ #elif HAVE_VISIBILITY
+   #ifdef LIBDE265_EXPORTS
