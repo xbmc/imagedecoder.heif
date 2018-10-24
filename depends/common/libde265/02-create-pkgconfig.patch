@@ -1,5 +1,5 @@
---- libde265-1.0.3/CMakeLists.txt.orig	2018-09-26 13:27:20.533514531 +0200
-+++ libde265-1.0.3/CMakeLists.txt	2018-09-26 13:28:37.416969623 +0200
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
 @@ -66,3 +66,11 @@
  add_subdirectory (libde265)
  add_subdirectory (dec265)

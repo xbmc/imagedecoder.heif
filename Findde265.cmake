@@ -19,7 +19,7 @@ endif()
 
 find_path(de265_INCLUDE_DIR NAMES libde265/de265.h
                             PATHS ${PC_DE265_INCLUDEDIR})
-find_library(de265_LIBRARY NAMES de265
+find_library(de265_LIBRARY NAMES de265 libde265
                           PATHS ${PC_DE265_LIBDIR})
 
 set(de265_VERSION ${PC_DE265_VERSION})

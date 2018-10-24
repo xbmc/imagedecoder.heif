@@ -1,0 +1,22 @@
+--- a/libde265/encoder/algo/tb-transform.cc
++++ b/libde265/encoder/algo/tb-transform.cc
+@@ -71,7 +71,7 @@
+   enum PredMode predMode = cb->PredMode;
+ 
+   int16_t blk[32*32]; // residual
+-  int16_t* residual;
++  int16_t* residual = nullptr;
+ 
+ 
+   //printf("transform-coeffs %d;%d size:%d cIdx:%d\n", tb->x,tb->y,1<<tb->log2Size,cIdx);
+--- a/libde265/transform.cc
++++ b/libde265/transform.cc
+@@ -477,7 +477,7 @@
+     else {
+       const int offset = (1<<(bdShift-1));
+ 
+-      const uint8_t* sclist;
++      const uint8_t* sclist = nullptr;
+       int matrixID = cIdx;
+       if (!intra) {
+         if (nT<32) { matrixID += 3; }

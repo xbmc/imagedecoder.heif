@@ -19,7 +19,7 @@ endif()
 
 find_path(HEIF_INCLUDE_DIR NAMES libheif/heif.h
                            PATHS ${PC_HEIF_INCLUDEDIR})
-find_library(HEIF_LIBRARY NAMES heif
+find_library(HEIF_LIBRARY NAMES heif libheif
                           PATHS ${PC_HEIF_LIBDIR})
 
 set(HEIF_VERSION ${PC_HEIF_VERSION})
