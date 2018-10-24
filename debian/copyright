@@ -1,9 +1,9 @@
 Format: http://dep.debian.net/deps/dep5
-Upstream-Name: imagedecoder.raw
-Source: <url://example.com>
+Upstream-Name: imagedecoder.heif
+Source: https://github.com/xbmc/imagedecoder.heif
 
 Files: *
-Copyright: 2005-2013 Team XBMC
+Copyright: 2005-2018 Team XBMC
 License: GPL-2+
  This package is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
