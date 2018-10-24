@@ -2,8 +2,8 @@ Source: kodi-imagedecoder-heif
 Priority: extra
 Maintainer: Arne Morten Kvarving <cptspiff@gmail.com>
 Build-Depends: debhelper (>= 8.0.0), cmake,
-               kodi-addon-dev, libde265-dev
-Standards-Version: 3.9.2
+               kodi-addon-dev, libde265-dev, libheif-dev
+Standards-Version: 3.9.8
 Section: libs
 
 Package: kodi-imagedecoder-heif

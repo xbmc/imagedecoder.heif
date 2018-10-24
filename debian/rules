@@ -10,16 +10,16 @@
 #export DH_VERBOSE=1
 
 %:
-	dh $@ 
+	dh $@ --parallel
 
 override_dh_auto_configure:
-	dh_auto_configure -- -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=1 -DUSE_LTO=1
+	dh_auto_configure -- -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_SHARED_LIBS=1 -DUSE_LTO=1
 
 override_dh_strip:
-	dh_strip --dbg-package=kodi-imagedecoder-raw-dbg
+	dh_strip --dbg-package=kodi-imagedecoder-heif-dbg
 
 override_dh_auto_install:
-	dh_auto_install --destdir=debian/kodi-imagedecoder-raw
+	dh_auto_install --destdir=debian/kodi-imagedecoder-heif
 
 override_dh_installdocs:
-	dh_installdocs --link-doc=kodi-imagedecoder-raw
+	dh_installdocs --link-doc=kodi-imagedecoder-heif
