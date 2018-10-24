@@ -1,0 +1,13 @@
+--- a/libheif/CMakeLists.txt
++++ b/libheif/CMakeLists.txt
+@@ -29,6 +29,10 @@
+   include (${CMAKE_ROOT}/Modules/FindPkgConfig.cmake)
+   pkg_check_modules (LIBDE265 libde265)
+   pkg_check_modules (X265 x265)
++else()
++  find_path(de265_INCLUDE_DIR NAMES libde265/de265.h)
++  set(LIBDE265_CFLAGS /I${de265_INCLUDE_DIR})
++  set(LIBDE265_FOUND ON)
+ endif()
+ 
+ if(LIBDE265_FOUND)
