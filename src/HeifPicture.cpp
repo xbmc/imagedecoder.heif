@@ -58,11 +58,10 @@ public:
     heif_image_handle* handle;
     heif_context_get_primary_image_handle(ctx, &handle);
     heif_image* img;
-    heif_chroma fmt = format == ADDON_IMG_FMT_A8R8G8B8
-                                  ? heif_chroma_interleaved_32bit
-                                  : heif_chroma_interleaved_24bit;
+    heif_chroma fmt = heif_chroma_interleaved_24bit;
     struct heif_error error = heif_decode_image(handle, &img,
                                                 heif_colorspace_RGB, fmt, nullptr);
+
     if (error.code != heif_error_Ok)
     {
       kodi::Log(ADDON_LOG_ERROR, "%s", error.message);
@@ -74,9 +73,18 @@ public:
     if (!data)
       return false;
 
-    size_t linesize = width*(format == ADDON_IMG_FMT_A8R8G8B8 ? 4 : 3);
-    for (size_t i = 0; i < height; ++i, pixels += linesize, data += stride)
-      memcpy(pixels, data, linesize);
+    for (size_t i = 0; i < height; ++i)
+    {
+      const uint8_t* src = data + i*stride;
+      uint8_t* dst = pixels + i*pitch;
+      for (size_t j = 0; j < width; ++j, src += 3)
+      {
+        for (size_t k = 0; k < 3; ++k)
+          *dst++ = *(src+2-k);
+        if (format == ADDON_IMG_FMT_A8R8G8B8)
+          *dst++ = 255;
+      }
+    }
 
     return true;
   }
