@@ -1,0 +1,32 @@
+From 162793b66e5b8c4e8ee5c30397e1f330e56eaecc Mon Sep 17 00:00:00 2001
+From: Arne Morten Kvarving <arne.morten.kvarving@sintef.no>
+Date: Thu, 23 May 2019 13:22:47 +0200
+Subject: [PATCH 6/6] remove -Werror
+
+---
+ CMakeLists.txt | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5146cb7..7a2af33 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -37,7 +37,6 @@ configure_file (
+ if(CMAKE_COMPILER_IS_GNUCXX)
+   set(GCC 1)
+   add_definitions(-Wall)
+-  add_definitions(-Werror)
+   add_definitions(-Wsign-compare)
+   add_definitions(-Wconversion)
+   add_definitions(-Wno-sign-conversion)
+@@ -45,7 +44,6 @@ if(CMAKE_COMPILER_IS_GNUCXX)
+   set(CMAKE_CXX_FLAGS "-std=gnu++0x ${CMAKE_CXX_FLAGS}")
+ elseif("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
+   add_definitions(-Wall)
+-  add_definitions(-Werror)
+   add_definitions(-Wsign-compare)
+   add_definitions(-Wconversion)
+   add_definitions(-Wno-sign-conversion)
+-- 
+2.17.1
+

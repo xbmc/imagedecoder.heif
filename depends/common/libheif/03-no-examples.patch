@@ -1,11 +1,25 @@
+From 594afe754fb1df963b56384aa973eb8275cae0bc Mon Sep 17 00:00:00 2001
+From: Arne Morten Kvarving <arne.morten.kvarving@sintef.no>
+Date: Thu, 23 May 2019 13:21:51 +0200
+Subject: [PATCH 3/6] don't build examples
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 9168e25..5146cb7 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -61,7 +61,7 @@
+@@ -61,7 +61,7 @@ else()
    set(LIBHEIF_LIBRARY_NAME libheif)
  endif()
  
 -add_subdirectory (examples)
 +#add_subdirectory (examples)
  add_subdirectory (libheif)
+ add_subdirectory (gdk-pixbuf)
  
- set(libdir ${CMAKE_INSTALL_PREFIX}/lib)
+-- 
+2.17.1
+

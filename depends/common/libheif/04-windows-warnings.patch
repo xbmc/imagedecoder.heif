@@ -1,6 +1,18 @@
+From 31ca61dc651452082e7b3f74e84ec35d3778b715 Mon Sep 17 00:00:00 2001
+From: Arne Morten Kvarving <arne.morten.kvarving@sintef.no>
+Date: Thu, 23 May 2019 13:22:05 +0200
+Subject: [PATCH 4/6] quell warnings on windows
+
+---
+ libheif/heif_context.cc | 2 +-
+ libheif/heif_image.cc   | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/libheif/heif_context.cc b/libheif/heif_context.cc
+index 6f28b73..a492d49 100644
 --- a/libheif/heif_context.cc
 +++ b/libheif/heif_context.cc
-@@ -97,7 +97,7 @@
+@@ -97,7 +97,7 @@ static int32_t readvec_signed(const std::vector<uint8_t>& data,int& ptr,int len)
    val &= ~high_bit;
  
    if (negative) {
@@ -9,9 +21,11 @@
    }
    else {
      return val;
+diff --git a/libheif/heif_image.cc b/libheif/heif_image.cc
+index 8f0d8b0..2d035b7 100644
 --- a/libheif/heif_image.cc
 +++ b/libheif/heif_image.cc
-@@ -637,7 +637,7 @@
+@@ -887,7 +887,7 @@ std::shared_ptr<HeifPixelImage> HeifPixelImage::convert_RGB24_32_to_YCbCr420() c
      outimg->add_plane(heif_channel_Alpha, m_width, m_height, 8);
    }
  
@@ -20,3 +34,6 @@
    int out_cb_stride=0, out_cr_stride=0, out_y_stride=0, out_a_stride=0;
  
    const uint8_t *in_p;
+-- 
+2.17.1
+
