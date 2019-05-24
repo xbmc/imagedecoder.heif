@@ -14,12 +14,6 @@ environment:
       CONFIG: Release
     - GENERATOR: "Visual Studio 14 Win64"
       CONFIG: Release
-    - GENERATOR: "Visual Studio 14 Win64"
-      CONFIG: Release
-      WINSTORE: -DCMAKE_SYSTEM_NAME=WindowsStore -DCMAKE_SYSTEM_VERSION="10.0.16299.0"
-    - GENERATOR: "Visual Studio 14 ARM"
-      CONFIG: Release
-      WINSTORE: -DCMAKE_SYSTEM_NAME=WindowsStore -DCMAKE_SYSTEM_VERSION="10.0.16299.0"
 
 build_script:
   - cd ..
