@@ -43,7 +43,12 @@ public:
   bool LoadImageFromMemory(unsigned char* buffer, unsigned int bufSize,
                            unsigned int& width, unsigned int& height) override
   {
-    heif_context_read_from_memory(ctx, buffer, bufSize, nullptr);
+    struct heif_error error = heif_context_read_from_memory(ctx, buffer, bufSize, nullptr);
+    if (error.code != heif_error_Ok)
+    {
+      kodi::Log(ADDON_LOG_ERROR, "%s", error.message);
+      return false;
+    }
     heif_image_handle* handle;
     heif_context_get_primary_image_handle(ctx, &handle);
     width = heif_image_handle_get_width(handle);
