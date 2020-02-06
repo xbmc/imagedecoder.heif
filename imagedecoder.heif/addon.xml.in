@@ -14,5 +14,7 @@
     <summary>libheif based image decoder</summary>
     <description>libheif based image decoder</description>
     <platform>@PLATFORM@</platform>
+    <license>GPL-2.0</license>
+    <source>https://github.com/xbmc/imagedecoder.heif</source>
   </extension>
 </addon>
