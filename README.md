@@ -2,8 +2,8 @@
 
 This is a [Kodi](http://kodi.tv) image decoder addon for HEIF images.
 
-[![Build Status](https://travis-ci.org/notspiff/imagedecoder.heif.svg?branch=master)](https://travis-ci.org/notspiff/imagedecoder.heif)
-[![Build Status](https://ci.appveyor.com/api/projects/status/github/notspiff/imagedecoder.heif?svg=true)](https://ci.appveyor.com/project/notspiff/imagedecoder-heif)
+[![Build Status](https://travis-ci.org/xbmc/imagedecoder.heif.svg?branch=Leia)](https://travis-ci.org/xbmc/imagedecoder.heif)
+[![Build Status](https://dev.azure.com/teamkodi/binary-addons/_apis/build/status/xbmc.imagedecoder.heif?branchName=Leia)](https://dev.azure.com/teamkodi/binary-addons/_build/latest?definitionId=26&branchName=Leia)
 
 ## Build instructions
 
