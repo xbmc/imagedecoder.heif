@@ -1,17 +1,6 @@
-From 169e984efae53ded4f4db78391af099cdaf5129d Mon Sep 17 00:00:00 2001
-From: Arne Morten Kvarving <arne.morten.kvarving@sintef.no>
-Date: Thu, 23 May 2019 13:41:28 +0200
-Subject: [PATCH] disable gdk-pixbuf support
-
----
- CMakeLists.txt | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 7a2af33..abfa60d 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -61,7 +61,7 @@ endif()
+@@ -68,7 +68,7 @@
  
  #add_subdirectory (examples)
  add_subdirectory (libheif)
@@ -20,6 +9,3 @@ index 7a2af33..abfa60d 100644
  
  set(libdir ${CMAKE_INSTALL_PREFIX}/lib)
  set(prefix ${CMAKE_INSTALL_PREFIX})
--- 
-2.17.1
-
