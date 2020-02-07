@@ -1,6 +1,6 @@
 --- a/libheif/heif_colorconversion.cc
 +++ b/libheif/heif_colorconversion.cc
-@@ -1447,7 +1447,7 @@
+@@ -1598,7 +1598,7 @@
  
    outimg->add_plane(heif_channel_interleaved, width, height, 8);
  
@@ -9,7 +9,7 @@
    int in_y_stride=0, in_a_stride;
  
    uint8_t *out_p;
-@@ -1594,7 +1594,7 @@
+@@ -1745,7 +1745,7 @@
      outimg->add_plane(heif_channel_Alpha, width, height, 8);
    }
  
@@ -20,7 +20,7 @@
    const uint8_t *in_p;
 --- a/libheif/heif_context.cc
 +++ b/libheif/heif_context.cc
-@@ -97,7 +97,7 @@
+@@ -96,7 +96,7 @@
    val &= ~high_bit;
  
    if (negative) {

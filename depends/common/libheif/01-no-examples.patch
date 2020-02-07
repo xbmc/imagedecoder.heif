@@ -1,11 +1,11 @@
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -67,7 +67,7 @@
-   set(LIBHEIF_LIBRARY_NAME libheif)
- endif()
+@@ -79,6 +79,6 @@
+ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libheif.pc
+         DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
  
 -add_subdirectory (examples)
 +#add_subdirectory (examples)
  add_subdirectory (libheif)
  add_subdirectory (gdk-pixbuf)
- 
+
