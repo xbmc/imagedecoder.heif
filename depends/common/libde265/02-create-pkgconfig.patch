@@ -1,6 +1,6 @@
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -66,3 +66,11 @@
+@@ -68,3 +68,11 @@
  add_subdirectory (libde265)
  add_subdirectory (dec265)
  add_subdirectory (enc265)
@@ -12,3 +12,4 @@
 +
 +configure_file(libde265.pc.in libde265.pc @ONLY)
 +install(FILES ${CMAKE_BINARY_DIR}/libde265.pc DESTINATION lib/pkgconfig)
+

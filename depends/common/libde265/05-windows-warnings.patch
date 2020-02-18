@@ -11,7 +11,7 @@
    //printf("transform-coeffs %d;%d size:%d cIdx:%d\n", tb->x,tb->y,1<<tb->log2Size,cIdx);
 --- a/libde265/transform.cc
 +++ b/libde265/transform.cc
-@@ -477,7 +477,7 @@
+@@ -487,7 +487,7 @@
      else {
        const int offset = (1<<(bdShift-1));
  
@@ -20,3 +20,4 @@
        int matrixID = cIdx;
        if (!intra) {
          if (nT<32) { matrixID += 3; }
+

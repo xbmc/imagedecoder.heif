@@ -1,10 +1,11 @@
 Source: kodi-imagedecoder-heif
 Priority: extra
-Maintainer: Arne Morten Kvarving <cptspiff@gmail.com>
-Build-Depends: debhelper (>= 8.0.0), cmake,
+Maintainer: Nobody <nobody@kodi.tv>
+Build-Depends: debhelper (>= 9.0.0), cmake,
                kodi-addon-dev, libde265-dev, libheif-dev
-Standards-Version: 3.9.8
+Standards-Version: 4.1.2
 Section: libs
+Homepage: http://kodi.tv
 
 Package: kodi-imagedecoder-heif
 Section: libs

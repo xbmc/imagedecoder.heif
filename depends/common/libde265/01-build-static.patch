@@ -1,19 +1,19 @@
 --- a/libde265/CMakeLists.txt
 +++ b/libde265/CMakeLists.txt
-@@ -72,9 +72,12 @@
+@@ -90,7 +90,7 @@
    add_subdirectory (x86)
  endif()
  
--add_library(${LIBDE265_LIBRARY_NAME} SHARED ${libde265_sources} ${ENCODER_OBJECTS} ${X86_OBJECTS})
-+add_library(${LIBDE265_LIBRARY_NAME} ${libde265_sources} ${ENCODER_OBJECTS} ${X86_OBJECTS})
- target_link_libraries(${LIBDE265_LIBRARY_NAME} ${CMAKE_THREAD_LIBS_INIT})
+-add_library(${PROJECT_NAME} SHARED ${libde265_sources} ${ENCODER_OBJECTS} ${X86_OBJECTS})
++add_library(${PROJECT_NAME} ${libde265_sources} ${ENCODER_OBJECTS} ${X86_OBJECTS})
+ target_link_libraries(${PROJECT_NAME} PRIVATE Threads::Threads)
  
- if(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
-   SET_TARGET_PROPERTIES(${LIBDE265_LIBRARY_NAME} PROPERTIES COMPILE_FLAGS "-fPIC")
- endif(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
+ write_basic_package_version_file(${PROJECT_NAME}ConfigVersion.cmake COMPATIBILITY ExactVersion)
+@@ -107,3 +107,4 @@
+ 
+ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake DESTINATION
+     "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
 +
-+install(TARGETS ${LIBDE265_LIBRARY_NAME} DESTINATION lib)
-+install(FILES de265.h de265-version.h DESTINATION include/libde265)
 --- a/libde265/de265.h
 +++ b/libde265/de265.h
 @@ -38,9 +38,9 @@
