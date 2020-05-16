@@ -16,7 +16,7 @@
 
 Support for this is provided by ISO/IEC 23008-12:2017 compliant libheif.</description>
     <platform>@PLATFORM@</platform>
-    <license>GPL-2.0</license>
+    <license>GPL-2.0-or-later</license>
     <source>https://github.com/xbmc/imagedecoder.heif</source>
     <assets>
       <icon>icon.png</icon>
