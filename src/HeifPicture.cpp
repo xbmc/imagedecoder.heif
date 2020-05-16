@@ -13,8 +13,8 @@
 class HeifPicture : public kodi::addon::CInstanceImageDecoder
 {
 public:
-  HeifPicture(KODI_HANDLE instance)
-    : CInstanceImageDecoder(instance)
+  HeifPicture(KODI_HANDLE instance, const std::string& version)
+    : CInstanceImageDecoder(instance, version)
   {
     ctx = heif_context_alloc();
   }
@@ -89,11 +89,11 @@ class ATTRIBUTE_HIDDEN CMyAddon : public kodi::addon::CAddonBase
 {
 public:
   CMyAddon() { }
-  ADDON_STATUS CreateInstance(int instanceType, std::string instanceID, KODI_HANDLE instance, KODI_HANDLE& addonInstance) override
+  ADDON_STATUS CreateInstance(int instanceType, const std::string& instanceID, KODI_HANDLE instance, const std::string& version, KODI_HANDLE& addonInstance) override
   {
     if (instanceType == ADDON_INSTANCE_IMAGEDECODER)
     {
-      addonInstance = new HeifPicture(instance);
+      addonInstance = new HeifPicture(instance, version);
       return ADDON_STATUS_OK;
     }
 
