@@ -2,6 +2,7 @@
 
 This is a [Kodi](https://kodi.tv) image decoder addon for HEIF images.
 
+[![License: GPL-2.0-or-later](https://img.shields.io/badge/License-GPL%20v2+-blue.svg)](LICENSE.md)
 [![Build Status](https://travis-ci.org/xbmc/imagedecoder.heif.svg?branch=Matrix)](https://travis-ci.org/xbmc/imagedecoder.heif)
 [![Build Status](https://dev.azure.com/teamkodi/binary-addons/_apis/build/status/xbmc.imagedecoder.heif?branchName=Matrix)](https://dev.azure.com/teamkodi/binary-addons/_build/latest?definitionId=26&branchName=Matrix)
 
