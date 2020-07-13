@@ -1,0 +1,13 @@
+diff --git a/libheif/heif_context.cc b/libheif/heif_context.cc
+index 9607a3a..59e82e4 100644
+--- a/libheif/heif_context.cc
++++ b/libheif/heif_context.cc
+@@ -1130,6 +1130,8 @@ Error HeifContext::decode_image_planar(heif_item_id ID,
+ 
+         if (right >= img_width) { right = img_width-1; }
+         if (bottom >= img_height) { bottom = img_height-1; }
++        if (left == right == top == bottom)
++          continue;
+ 
+         if (left >= right ||
+             top >= bottom) {

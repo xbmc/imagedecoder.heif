@@ -1,9 +1,10 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ede33ff..b243d75 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -80,4 +80,4 @@
+@@ -81,4 +81,4 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libheif.pc
  
  #add_subdirectory (examples)
  add_subdirectory (libheif)
 -add_subdirectory (gdk-pixbuf)
 +#add_subdirectory (gdk-pixbuf)
-

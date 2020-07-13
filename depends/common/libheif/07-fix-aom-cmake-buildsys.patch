@@ -1,0 +1,31 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 87734de..161eb8b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -72,6 +72,11 @@ if (X265_FOUND)
+ else()
+     set(have_x265 no)
+ endif()
++if(AOM_FOUND)
++  set(have_aom yes)
++else()
++  set(have_aom no)
++endif()
+ set(VERSION ${PROJECT_VERSION})
+ 
+ configure_file(libheif.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libheif.pc @ONLY)
+diff --git a/libheif/CMakeLists.txt b/libheif/CMakeLists.txt
+index 6d683ec..7b5678a 100644
+--- a/libheif/CMakeLists.txt
++++ b/libheif/CMakeLists.txt
+@@ -94,8 +94,8 @@ endif()
+ 
+ if(AOM_FOUND)
+   add_definitions(-DAOM=1)
+-  set (libheif_sources
+-    ${libheif_sources}
++  target_compile_definitions(heif PRIVATE HAVE_AOM=1)
++  target_sources(heif PRIVATE
+     heif_decoder_aom.cc
+     heif_decoder_aom.h
+     heif_encoder_aom.cc

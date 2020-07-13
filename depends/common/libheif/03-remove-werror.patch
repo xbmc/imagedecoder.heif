@@ -1,6 +1,8 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7446b6a..ede33ff 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -22,7 +22,6 @@
+@@ -22,7 +22,6 @@ endif()
  
  if(NOT MSVC)
    add_definitions(-Wall)

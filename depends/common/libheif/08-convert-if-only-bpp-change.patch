@@ -1,0 +1,13 @@
+diff --git a/libheif/heif_context.cc b/libheif/heif_context.cc
+index e05b040..9607a3a 100644
+--- a/libheif/heif_context.cc
++++ b/libheif/heif_context.cc
+@@ -899,7 +899,7 @@ Error HeifContext::decode_image_user(heif_item_id ID,
+ 
+   int bpp = (options && options->convert_hdr_to_8bit) ? 8 : 0;
+ 
+-  if (different_chroma || different_colorspace) {
++  if (bpp || different_chroma || different_colorspace) {
+     img = convert_colorspace(img, target_colorspace, target_chroma, bpp);
+     if (!img) {
+       return Error(heif_error_Unsupported_feature, heif_suberror_Unsupported_color_conversion);

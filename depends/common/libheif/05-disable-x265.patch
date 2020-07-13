@@ -1,12 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b243d75..87734de 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -53,7 +53,7 @@
+@@ -53,7 +53,7 @@ endif()
  if (UNIX)
    find_package(PkgConfig)
    pkg_check_modules(LIBDE265 libde265)
 -  pkg_check_modules(X265 x265)
-+  # pkg_check_modules(X265 x265)
++  #  pkg_check_modules(X265 x265)
+   pkg_check_modules(AOM aom)
  endif()
  
- # Create libheif pkgconfig file
-

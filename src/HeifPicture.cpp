@@ -50,9 +50,11 @@ public:
     heif_image_handle* handle;
     heif_context_get_primary_image_handle(ctx, &handle);
     heif_image* img;
-    heif_chroma fmt = heif_chroma_interleaved_24bit;
+    heif_decoding_options* options = heif_decoding_options_alloc();
+    options->convert_hdr_to_8bit = 1;
     struct heif_error error = heif_decode_image(handle, &img,
-                                                heif_colorspace_RGB, fmt, nullptr);
+                                                heif_colorspace_RGB, heif_chroma_undefined, options);
+    heif_decoding_options_free(options);
 
     if (error.code != heif_error_Ok)
     {
@@ -62,19 +64,38 @@ public:
 
     int stride;
     const uint8_t* data = heif_image_get_plane_readonly(img, heif_channel_interleaved, &stride);
-    if (!data)
-      return false;
-
-    for (size_t i = 0; i < height; ++i)
-    {
-      const uint8_t* src = data + i*stride;
-      uint8_t* dst = pixels + i*pitch;
-      for (size_t j = 0; j < width; ++j, src += 3)
+    if (data) {
+      for (size_t i = 0; i < height; ++i)
       {
-        for (size_t k = 0; k < 3; ++k)
-          *dst++ = *(src+2-k);
-        if (format == ADDON_IMG_FMT_A8R8G8B8)
-          *dst++ = 255;
+        const uint8_t* src = data + i*stride;
+        uint8_t* dst = pixels + i*pitch;
+        for (size_t j = 0; j < width; ++j, src += 3)
+        {
+          for (size_t k = 0; k < 3; ++k)
+            *dst++ = *(src+2-k);
+          if (format == ADDON_IMG_FMT_A8R8G8B8)
+            *dst++ = 255;
+        }
+      }
+    } else {
+      int strideR, strideG, strideB;
+      const uint8_t* R = heif_image_get_plane_readonly(img, heif_channel_R, &strideR);
+      const uint8_t* G = heif_image_get_plane_readonly(img, heif_channel_G, &strideG);
+      const uint8_t* B = heif_image_get_plane_readonly(img, heif_channel_G, &strideB);
+      for (size_t i = 0; i < height; ++i)
+      {
+        const uint8_t* srcR = R + i*strideR;
+        const uint8_t* srcG = G + i*strideG;
+        const uint8_t* srcB = B + i*strideB;
+        uint8_t* dst = pixels + i*pitch;
+        for (size_t j = 0; j < width; ++j, ++srcR, ++srcG, ++srcB)
+        {
+          *dst++ = *srcR;
+          *dst++ = *srcG;
+          *dst++ = *srcB;
+          if (format == ADDON_IMG_FMT_A8R8G8B8)
+            *dst++ = 255;
+        }
       }
     }
 
