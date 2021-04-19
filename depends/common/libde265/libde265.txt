@@ -1,1 +1,1 @@
-libde265 https://github.com/strukturag/libde265/releases/download/v1.0.5/libde265-1.0.5.tar.gz
+libde265 https://github.com/strukturag/libde265/releases/download/v1.0.8/libde265-1.0.8.tar.gz
