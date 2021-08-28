@@ -1,9 +1,8 @@
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -80,4 +80,4 @@
- 
- #add_subdirectory (examples)
+@@ -164,4 +164,4 @@ if(WITH_EXAMPLES)
+     add_subdirectory (examples)
+ endif()
  add_subdirectory (libheif)
 -add_subdirectory (gdk-pixbuf)
 +#add_subdirectory (gdk-pixbuf)
-

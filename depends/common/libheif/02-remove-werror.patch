@@ -1,6 +1,6 @@
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -22,7 +22,6 @@
+@@ -22,7 +22,6 @@ endif()
  
  if(NOT MSVC)
    add_definitions(-Wall)
