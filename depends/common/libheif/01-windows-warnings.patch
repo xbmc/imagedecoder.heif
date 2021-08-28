@@ -1,0 +1,25 @@
+From 956f0ee6da5f9b84a4758fb3c6fc772fc8e108db Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Sat, 28 Aug 2021 15:15:25 +0200
+Subject: [PATCH 1/4] windows-warnings
+
+---
+ libheif/heif_context.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/libheif/heif_context.cc b/libheif/heif_context.cc
+index f208e57..0222ef0 100644
+--- a/libheif/heif_context.cc
++++ b/libheif/heif_context.cc
+@@ -93,7 +93,7 @@ static int32_t readvec_signed(const std::vector<uint8_t>& data, int& ptr, int le
+   val &= ~high_bit;
+ 
+   if (negative) {
+-    return -(high_bit - val);
++    return 0-(high_bit - val);
+   }
+   else {
+     return val;
+-- 
+2.25.1
+

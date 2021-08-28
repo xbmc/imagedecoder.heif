@@ -1,0 +1,22 @@
+From 92074c6c8cbc74353185df3d7bff23a8bdbad9fc Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Sat, 28 Aug 2021 15:16:52 +0200
+Subject: [PATCH 3/4] disable-gdk-pixbuf
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 067a3ea..b88a457 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -164,4 +164,4 @@ if(WITH_EXAMPLES)
+     add_subdirectory (examples)
+ endif()
+ add_subdirectory (libheif)
+-add_subdirectory (gdk-pixbuf)
++#add_subdirectory (gdk-pixbuf)
+-- 
+2.25.1
+
