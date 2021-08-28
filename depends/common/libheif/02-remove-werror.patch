@@ -1,0 +1,24 @@
+From 5eeda141a8cb120ddcd39f179106552c2f22a60c Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Sat, 28 Aug 2021 15:16:18 +0200
+Subject: [PATCH 2/4] remove-werror
+
+---
+ CMakeLists.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 58ade87..067a3ea 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -22,7 +22,6 @@ endif()
+ 
+ if(NOT MSVC)
+   add_definitions(-Wall)
+-  add_definitions(-Werror)
+   add_definitions(-Wsign-compare)
+   add_definitions(-Wconversion)
+   add_definitions(-Wno-sign-conversion)
+-- 
+2.25.1
+
