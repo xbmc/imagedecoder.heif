@@ -10,7 +10,7 @@
 
 #include <kodi/addon-instance/ImageDecoder.h>
 
-class HeifPicture : public kodi::addon::CInstanceImageDecoder
+class ATTRIBUTE_HIDDEN HeifPicture : public kodi::addon::CInstanceImageDecoder
 {
 public:
   HeifPicture(KODI_HANDLE instance, const std::string& version)
