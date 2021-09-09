@@ -18,6 +18,12 @@
       <icon>icon.png</icon>
     </assets>
     <summary lang="en_GB">HEIF file format decoder</summary>
+    <summary lang="ko_KR">HEIF 파일 형식 디코더</summary>
+    <summary lang="pl_PL">Dekoder formatu pliku HEIF</summary>
+    <summary lang="ru_RU">Декодер формата файлов HEIF</summary>
     <description lang="en_GB">High Efficiency Image File Format (HEIF) is a file format employing HEVC (h.265) image coding for the best compression ratios currently possible.[CR][CR]Support for this is provided by ISO/IEC 23008-12:2017 compliant libheif.</description>
+    <description lang="ko_KR">고효율 이미지 파일 형식(HEIF)는 현재 가능한 최상의 압축률을 위해 HEVC(h.265) 이미지 코딩을 사용하는 파일 형식입니다.[CR][CR]ISO/IEC 23008-12:2017를 따르는 libheif로 지원됩니다.</description>
+    <description lang="pl_PL">High Efficiency Image File Format (HEIF) to format pliku wykorzystujący kodowanie obrazu HEVC (h.265) w celu uzyskania najlepszych obecnie możliwych współczynników kompresji.[CR][CR]Obsługę tego zapewnia zgodny z normą ISO/IEC 23008-12:2017 libheif.</description>
+    <description lang="ru_RU">High Efficiency Image File Format (HEIF) - это формат файлов, использующий кодирование изображений HEVC (h.265) для достижения наилучших коэффициентов сжатия, возможных в настоящее время.[CR][CR]Поддержка этого формата обеспечивается совместимой с ISO/IEC 23008-12:2017 программой libheif.</description>
   </extension>
 </addon>
