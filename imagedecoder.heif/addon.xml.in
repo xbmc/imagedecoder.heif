@@ -7,9 +7,18 @@
   <requires>@ADDON_DEPENDS@</requires>
   <extension
     point="kodi.imagedecoder"
-    library_@PLATFORM@="@LIBRARY_FILENAME@"
-    extension=".heif|.heic"
-    mimetype="image/heif|image/heic"/>
+    library_@PLATFORM@="@LIBRARY_FILENAME@">
+    <support>
+      <mimetype name="image/heif">
+        <extension>.heif</extension>
+        <description>30100</description>
+      </mimetype>
+      <mimetype name="image/heic">
+        <extension>.heic</extension>
+        <description>30101</description>
+      </mimetype>
+    </support>
+  </extension>
   <extension point="xbmc.addon.metadata">
     <platform>@PLATFORM@</platform>
     <license>GPL-2.0-or-later</license>

@@ -1,0 +1,4 @@
+Source from https://github.com/cdcseacave/TinyEXIF
+Sync to 6e56015 (10 Apr. 2021)
+
+Used to read EXIF information from HEIF pictures.
