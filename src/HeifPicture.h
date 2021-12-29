@@ -13,7 +13,7 @@
 class ATTR_DLL_LOCAL HeifPicture : public kodi::addon::CInstanceImageDecoder
 {
 public:
-  HeifPicture(KODI_HANDLE instance, const std::string& version);
+  HeifPicture(const kodi::addon::IInstanceInfo& instance);
   ~HeifPicture() override;
 
   bool SupportsFile(const std::string& file) override;
