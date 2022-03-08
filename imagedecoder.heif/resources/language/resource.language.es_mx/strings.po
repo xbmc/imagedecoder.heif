@@ -22,5 +22,9 @@ msgid "HEIF file format decoder"
 msgstr "Decodificador de formato de archivo HEIF"
 
 msgctxt "Addon Description"
-msgid "High Efficiency Image File Format (HEIF) is a file format employing HEVC (h.265) image coding for the best compression ratios currently possible.[CR][CR]Support for this is provided by ISO/IEC 23008-12:2017 compliant libheif."
-msgstr "High Efficiency Image File Format (HEIF) es un formato de archivo que utiliza la codificación de imagen HEVC (h.265) para los mejores radios de compresión actualmente posibles. [CR][CR]El soporte es proveído conforme al estándar ISO/IEC 23008-12:2017 por la librería libheif."
+msgid "High Efficiency Image File Format (HEIF) is a file format employing HEVC (h.265) image coding for the best compression ratios currently possible.
+
+Support for this is provided by ISO/IEC 23008-12:2017 compliant libheif."
+msgstr "High Efficiency Image File Format (HEIF) es un formato de archivo que utiliza la codificación de imagen HEVC (h.265) para los mejores radios de compresión actualmente posibles. 
+
+El soporte es proveído conforme al estándar ISO/IEC 23008-12:2017 por la librería libheif."
