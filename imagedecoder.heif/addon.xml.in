@@ -31,6 +31,7 @@
     <summary lang="nb_NO">Dekoder for HEIF-filformatet</summary>
     <summary lang="pl_PL">Dekoder formatu pliku HEIF</summary>
     <summary lang="pt_BR">Decodificador de formato de arquivo HEIF</summary>
+    <summary lang="pt_PT">Decodificador de formato de ficheiro HEIF</summary>
     <summary lang="ru_RU">Декодер формата файлов HEIF</summary>
     <summary lang="sv_SE">HEIF filformatsavkodare</summary>
     <summary lang="tr_TR">HEIF dosya biçimi kod çözücü</summary>
@@ -48,6 +49,7 @@
     <description lang="nb_NO">High Efficiency Image File Format (HEIF) er et filformat som benytter seg av HEVC (h.265)-bildekoding for beste mulige komprimeringsforhold.[CR][CR]Støtte for dette leveres av det ISO/IEC 23008-12:2017-kompatible libheif.</description>
     <description lang="pl_PL">High Efficiency Image File Format (HEIF) to format pliku wykorzystujący kodowanie obrazu HEVC (h.265) w celu uzyskania najlepszych obecnie możliwych współczynników kompresji.[CR][CR]Obsługę tego zapewnia zgodny z normą ISO/IEC 23008-12:2017 libheif.</description>
     <description lang="pt_BR">High Efficiency Image File Format (HEIF) é um formato de arquivo que utiliza codificação de imagem HEVC (h.265) para as melhores taxas de compressão possíveis atualmente.[CR][CR]O suporte para isso é fornecido através da biblioteca libheif em conformidade com a ISO/IEC 23008-12:2017.</description>
+    <description lang="pt_PT">O formato de ficheiro de imagem de alta eficiência (HEIF) é um formato que utiliza codificação de imagem HEVC (H.265) para os melhores taxas de compressão possíveis atualmente.[CR][CR]O suporte para isto é fornecido pela biblioteca libheif em conformidade com a ISO/IEC 23008-12:2017.</description>
     <description lang="ru_RU">High Efficiency Image File Format (HEIF) - это формат файлов, использующий кодирование изображений HEVC (h.265) для достижения наилучших коэффициентов сжатия, возможных в настоящее время.[CR][CR]Поддержка этого формата обеспечивается совместимой с ISO/IEC 23008-12:2017 программой libheif.</description>
     <description lang="sv_SE">High Efficiency Image File Format (HEIF) är ett filformat som använder HEVC (h.265) bildkodning för bästa möjliga komprimeringsförhållanden för närvarande.[CR][CR]Stöd för detta tillhandahålls av ISO/IEC 23008-12:2017-kompatibel libheif.</description>
     <description lang="tr_TR">Yüksek Verimli Görüntü Dosyası Formatı (HEIF), şu anda mümkün olan en iyi sıkıştırma oranları için HEVC (h.265) görüntü kodlamasını kullanan bir dosya formatıdır.[CR][CR]Bunun için destek, ISO/IEC 23008-12:2017 uyumlu libheif tarafından sağlanmaktadır.</description>
