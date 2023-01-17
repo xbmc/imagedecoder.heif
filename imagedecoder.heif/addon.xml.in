@@ -27,6 +27,7 @@
     <summary lang="et_EE">HEIF failivormingu dekooder</summary>
     <summary lang="fi_FI">HEIF-muotoisten kuvien luku</summary>
     <summary lang="fr_FR">Décodeur du format HEIF</summary>
+    <summary lang="hr_HR">HEIF datotečni dekôder formata</summary>
     <summary lang="hu_HU">HEIF állományformátum dekóder</summary>
     <summary lang="it_IT">Decodificatore del formato di file HEIF</summary>
     <summary lang="ko_KR">HEIF 파일 형식 디코더</summary>
@@ -49,6 +50,7 @@
     <description lang="et_EE">High Efficiency Image File Format (HEIF) on failivorming, mis kasutab HEVC-kodeeringut (h.265) tänapäeva parimate tihendussuhete jaoks.</description>
     <description lang="fi_FI">High Effiency Image File Format (HEIF) on HEVC-koodausta (h.265) hyödyntävä tiedostomuoto nykypäivän parhaiden pakkaussuhteiden saavuttamiseksi.</description>
     <description lang="fr_FR">High Efficiency Image File Format (HEIF) est un format de fichier qui utilise le codeur d&apos;image HEVC (h.265) pour atteindre les meilleurs résultats de compression actuellement possible. [CR][CR]Le support est donné par la librairie libheif conforme à l&apos;ISO/IEC 23008-12:2017.</description>
+    <description lang="hr_HR">High Efficiency Image File Format (HEIF) je datotečni format nastao za HEVC (h.265) slikovno kôdiranje za najbolji odnos kompresije trenutno moguć.[CR][CR]Podršku za to pruža libheif koji je usklađen sa standardom ISO/IEC 23008-12:2017.</description>
     <description lang="it_IT">HEIF (High Efficiency Image File Format) è un formato di file che utilizza la codifica delle immagini HEVC (h.265) per i migliori rapporti di compressione attualmente possibili.[CR][CR]Il supporto per questo è fornito dalla conformità ISO/IEC 23008-12:2017 libheif.</description>
     <description lang="ko_KR">고효율 이미지 파일 형식(HEIF)는 현재 가능한 최상의 압축률을 위해 HEVC(h.265) 이미지 코딩을 사용하는 파일 형식입니다.[CR][CR]ISO/IEC 23008-12:2017를 따르는 libheif로 지원됩니다.</description>
     <description lang="lv_LV">High Efficiency Image File Format (HEIF) - faila formāts, kurā tiek izmantots HEVC (h.265) attēla kodēšanas algoritms, lai sasniegtu vislabāko pašlaik iespējamo attēla saspiešanas pakāpi.[CR][CR]Atbalstu šim formātam nodrošina libheif bibliotēka, kas atbilst ISO/IEC 23008-12:2017.</description>
