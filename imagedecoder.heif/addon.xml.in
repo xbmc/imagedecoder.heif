@@ -26,22 +26,51 @@
     <assets>
       <icon>icon.png</icon>
     </assets>
+    <summary lang="ca_ES">Descodificador de format de fitxer HEIF</summary>
+    <summary lang="cs_CZ">Dekodér souborového formátu HEIF</summary>
     <summary lang="da_DK">Afkoder til HEIF filformat</summary>
     <summary lang="de_DE">Decoder für das HEIF-Dateiformat</summary>
     <summary lang="en_GB">HEIF file format decoder</summary>
+    <summary lang="es_ES">Decodificador de formato de archivo HEIF</summary>
     <summary lang="es_MX">Decodificador de formato de archivo HEIF</summary>
+    <summary lang="et_EE">HEIF failivormingu dekooder</summary>
+    <summary lang="eu_ES">HEIF fitxategi-formatu deskodetzailea</summary>
+    <summary lang="fi_FI">HEIF-muotoisten kuvien luku</summary>
+    <summary lang="fr_FR">Décodeur du format HEIF</summary>
+    <summary lang="hr_HR">HEIF datotečni dekôder formata</summary>
+    <summary lang="hu_HU">HEIF állományformátum dekóder</summary>
+    <summary lang="it_IT">Decodificatore del formato di file HEIF</summary>
     <summary lang="ko_KR">HEIF 파일 형식 디코더</summary>
+    <summary lang="lv_LV">HEIF faila formāta dekodētājs</summary>
+    <summary lang="nb_NO">Dekoder for HEIF-filformatet</summary>
     <summary lang="pl_PL">Dekoder formatu pliku HEIF</summary>
+    <summary lang="pt_BR">Decodificador de formato de arquivo HEIF</summary>
+    <summary lang="pt_PT">Decodificador de formato de ficheiro HEIF</summary>
     <summary lang="ru_RU">Декодер формата файлов HEIF</summary>
+    <summary lang="sv_SE">HEIF filformatsavkodare</summary>
     <summary lang="tr_TR">HEIF dosya biçimi kod çözücü</summary>
     <summary lang="zh_CN">HEIF 文件格式解码器</summary>
+    <description lang="ca_ES">El format de fitxer d&apos;imatge d&apos;alta eficiència (HEIF) és un format de fitxer que utilitza codificació d&apos;imatge HEVC (h.265) per obtenir les millors relacions de compressió possibles actualment.[CR][CR]El suport per a això el proporciona libheif, que compleix el ISO/IEC 23008-12:2017.</description>
+    <description lang="cs_CZ">High Efficiency Image File Format (HEIF) je souborový formát používající kódování obrázků HEVC (h.265) pro nejlepší kompresní poměry nyní možné.[CR][CR]Podpora je poskytnuta knihovnou libheif splňující ISO/IEC 23008-12:2017.</description>
     <description lang="da_DK">High Efficiency Image File Format (HEIF) er et filformat, der anvender HEVC (h.265) billedkodning til de bedst mulige komprimeringsforhold i øjeblikket.[CR][CR]Understøttelse af dette er leveret af ISO/IEC 23008-12: 2017-kompatibel libheif.</description>
     <description lang="de_DE">High Efficiency Image File Format (HEIF) ist ein Dateiformat, das HEVC (h.265) Bildkodierung für die besten aktuell möglichen Kompressionsergebnisse nutzt. [CR][CR]Die Unterstützung dafür wird von der ISO/IEC 23008-12:2017-konformen Bibliothek libheif erbracht.</description>
     <description lang="en_GB">High Efficiency Image File Format (HEIF) is a file format employing HEVC (h.265) image coding for the best compression ratios currently possible.[CR][CR]Support for this is provided by ISO/IEC 23008-12:2017 compliant libheif.</description>
+    <description lang="es_ES">El formato de archivo de imágen de alta eficiencia (High Efficiency Image Format - HEIF) es un formato que emplea la codificación de imagen HEVC (h.265) para el mejor ratio de compresión posible.[CR][CR]El soporte es provisto por libheif que cumple con ISO/IEC 23008-12:2017.</description>
     <description lang="es_MX">High Efficiency Image File Format (HEIF) es un formato de archivo que utiliza la codificación de imagen HEVC (h.265) para los mejores radios de compresión actualmente posibles. [CR][CR]El soporte es proveído conforme al estándar ISO/IEC 23008-12:2017 por la librería libheif.</description>
+    <description lang="et_EE">High Efficiency Image File Format (HEIF) on failivorming, mis kasutab HEVC-kodeeringut (h.265) tänapäeva parimate tihendussuhete jaoks.</description>
+    <description lang="eu_ES">Eraginkortasun handiko irudi fitxategi-formatua, (HEIF - High Efficiency Image File Format) ahalik eta konpresio-proportziorik hoberena lortu ahal izateko, HEVC (h.265) irudi-kodetzea erabiltzen duen fitxategi-formatu bat da.[CR][CR]Honetarako euskarria libheif liburutegiak ahalbidetzen du ISO/IEC 23008-12:2017 betearaziz.</description>
+    <description lang="fi_FI">High Effiency Image File Format (HEIF) on HEVC-koodausta (h.265) hyödyntävä tiedostomuoto nykypäivän parhaiden pakkaussuhteiden saavuttamiseksi.</description>
+    <description lang="fr_FR">High Efficiency Image File Format (HEIF) est un format de fichier qui utilise le codeur d&apos;image HEVC (h.265) pour atteindre les meilleurs résultats de compression actuellement possible. [CR][CR]Le support est donné par la librairie libheif conforme à l&apos;ISO/IEC 23008-12:2017.</description>
+    <description lang="hr_HR">High Efficiency Image File Format (HEIF) je datotečni format nastao za HEVC (h.265) slikovno kôdiranje za najbolji odnos kompresije trenutno moguć.[CR][CR]Podršku za to pruža libheif koji je usklađen sa standardom ISO/IEC 23008-12:2017.</description>
+    <description lang="it_IT">HEIF (High Efficiency Image File Format) è un formato di file che utilizza la codifica delle immagini HEVC (h.265) per i migliori rapporti di compressione attualmente possibili.[CR][CR]Il supporto per questo è fornito dalla conformità ISO/IEC 23008-12:2017 libheif.</description>
     <description lang="ko_KR">고효율 이미지 파일 형식(HEIF)는 현재 가능한 최상의 압축률을 위해 HEVC(h.265) 이미지 코딩을 사용하는 파일 형식입니다.[CR][CR]ISO/IEC 23008-12:2017를 따르는 libheif로 지원됩니다.</description>
+    <description lang="lv_LV">High Efficiency Image File Format (HEIF) - faila formāts, kurā tiek izmantots HEVC (h.265) attēla kodēšanas algoritms, lai sasniegtu vislabāko pašlaik iespējamo attēla saspiešanas pakāpi.[CR][CR]Atbalstu šim formātam nodrošina libheif bibliotēka, kas atbilst ISO/IEC 23008-12:2017.</description>
+    <description lang="nb_NO">High Efficiency Image File Format (HEIF) er et filformat som benytter seg av HEVC (h.265)-bildekoding for beste mulige komprimeringsforhold.[CR][CR]Støtte for dette leveres av det ISO/IEC 23008-12:2017-kompatible libheif.</description>
     <description lang="pl_PL">High Efficiency Image File Format (HEIF) to format pliku wykorzystujący kodowanie obrazu HEVC (h.265) w celu uzyskania najlepszych obecnie możliwych współczynników kompresji.[CR][CR]Obsługę tego zapewnia zgodny z normą ISO/IEC 23008-12:2017 libheif.</description>
+    <description lang="pt_BR">High Efficiency Image File Format (HEIF) é um formato de arquivo que utiliza codificação de imagem HEVC (h.265) para as melhores taxas de compressão possíveis atualmente.[CR][CR]O suporte para isso é fornecido através da biblioteca libheif em conformidade com a ISO/IEC 23008-12:2017.</description>
+    <description lang="pt_PT">O formato de ficheiro de imagem de alta eficiência (HEIF) é um formato que utiliza codificação de imagem HEVC (H.265) para os melhores taxas de compressão possíveis atualmente.[CR][CR]O suporte para isto é fornecido pela biblioteca libheif em conformidade com a ISO/IEC 23008-12:2017.</description>
     <description lang="ru_RU">High Efficiency Image File Format (HEIF) - это формат файлов, использующий кодирование изображений HEVC (h.265) для достижения наилучших коэффициентов сжатия, возможных в настоящее время.[CR][CR]Поддержка этого формата обеспечивается совместимой с ISO/IEC 23008-12:2017 программой libheif.</description>
+    <description lang="sv_SE">High Efficiency Image File Format (HEIF) är ett filformat som använder HEVC (h.265) bildkodning för bästa möjliga komprimeringsförhållanden för närvarande.[CR][CR]Stöd för detta tillhandahålls av ISO/IEC 23008-12:2017-kompatibel libheif.</description>
     <description lang="tr_TR">Yüksek Verimli Görüntü Dosyası Formatı (HEIF), şu anda mümkün olan en iyi sıkıştırma oranları için HEVC (h.265) görüntü kodlamasını kullanan bir dosya formatıdır.[CR][CR]Bunun için destek, ISO/IEC 23008-12:2017 uyumlu libheif tarafından sağlanmaktadır.</description>
     <description lang="zh_CN">高效图像文件格式（HEIF）是一种采用 HEVC（h.265）图像编码的文件格式，可获得当前可能的最佳压缩比。[CR][CR]此支持由符合 ISO/IEC 23008-12:2017 标准的 libheif 提供。</description>
   </extension>
