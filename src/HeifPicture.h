@@ -8,13 +8,15 @@
 #pragma once
 
 #include <kodi/addon-instance/ImageDecoder.h>
-#include <libheif/heif.h>
+#include <libheif/heif_cxx.h>
+
+#include <memory>
 
 class ATTR_DLL_LOCAL HeifPicture : public kodi::addon::CInstanceImageDecoder
 {
 public:
   HeifPicture(const kodi::addon::IInstanceInfo& instance);
-  ~HeifPicture() override;
+  ~HeifPicture() override = default;
 
   bool SupportsFile(const std::string& file) override;
   bool ReadTag(const std::string& file, kodi::addon::ImageDecoderInfoTag& tag) override;
@@ -30,5 +32,5 @@ public:
               ADDON_IMG_FMT format) override;
 
 private:
-  heif_context* m_heifCtx = nullptr;
+  std::unique_ptr<heif::Context> m_heifCtx;
 };
