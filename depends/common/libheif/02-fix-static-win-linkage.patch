@@ -1,6 +1,6 @@
 --- a/libheif/heif.h
 +++ b/libheif/heif.h
-@@ -47,9 +47,9 @@ extern "C" {
+@@ -55,9 +55,9 @@
  
  #if defined(_MSC_VER) && !defined(LIBHEIF_STATIC_BUILD)
  #ifdef LIBHEIF_EXPORTS
