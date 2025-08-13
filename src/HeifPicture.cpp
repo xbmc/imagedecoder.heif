@@ -12,13 +12,8 @@
 #include <kodi/Filesystem.h>
 
 HeifPicture::HeifPicture(const kodi::addon::IInstanceInfo& instance)
-  : CInstanceImageDecoder(instance), m_heifCtx(heif_context_alloc())
+  : CInstanceImageDecoder(instance), m_heifCtx(std::make_unique<heif::Context>())
 {
-}
-
-HeifPicture::~HeifPicture()
-{
-  heif_context_free(m_heifCtx);
 }
 
 bool HeifPicture::SupportsFile(const std::string& file)
@@ -48,37 +43,34 @@ bool HeifPicture::ReadTag(const std::string& file, kodi::addon::ImageDecoderInfo
   std::vector<uint8_t> buffer(length);
   fileData.Read(buffer.data(), buffer.size());
 
-  struct heif_error error =
-      heif_context_read_from_memory(m_heifCtx, buffer.data(), length, nullptr);
-  if (error.code != heif_error_Ok)
+  try
   {
-    kodi::Log(ADDON_LOG_ERROR, "%s: Read error '%s'", __func__, error.message);
+    m_heifCtx->read_from_memory_without_copy(buffer.data(), buffer.size());
+  }
+  catch (heif::Error e)
+  {
+    kodi::Log(ADDON_LOG_ERROR, "%s: Read error '%s'", __func__, e.get_message().c_str());
     return false;
   }
-  heif_image_handle* handle{nullptr};
-  heif_context_get_primary_image_handle(m_heifCtx, &handle);
 
-  tag.SetWidth(heif_image_handle_get_width(handle));
-  tag.SetHeight(heif_image_handle_get_height(handle));
+  heif::ImageHandle handle =  m_heifCtx->get_primary_image_handle();
 
-  int metadata_count = heif_image_handle_get_number_of_metadata_blocks(handle, nullptr);
-  heif_item_id* metadata_ids =
-      static_cast<heif_item_id*>(malloc(metadata_count * sizeof(heif_item_id)));
-  int metadata_ids_count = heif_image_handle_get_list_of_metadata_block_IDs(
-      handle, nullptr, metadata_ids, metadata_count);
-  for (int i = 0; i < metadata_count; i++)
+  tag.SetWidth(handle.get_width());
+  tag.SetHeight(handle.get_height());
+
+  std::vector<heif_item_id> ids = handle.get_list_of_metadata_block_IDs();
+
+  for (const auto& id : ids)
   {
-    const char* type = heif_image_handle_get_metadata_type(handle, metadata_ids[i]);
+    std::string type = handle.get_metadata_type(id);
 
-    if (type && strcmp(type, "Exif") == 0)
+    if (type == "Exif")
     {
-      size_t metadata_size = heif_image_handle_get_metadata_size(handle, metadata_ids[i]);
-      uint8_t* metadata = static_cast<uint8_t*>(malloc(metadata_size));
-      heif_image_handle_get_metadata(handle, metadata_ids[i], metadata);
+      std::vector<uint8_t> metadata = handle.get_metadata(id);
 
       TinyEXIF::EXIFInfo imageEXIF;
 
-      imageEXIF.parseFromEXIFSegment(metadata + 4, metadata_size);
+      imageEXIF.parseFromEXIFSegment(metadata.data() + type.length(), metadata.size());
 
       switch (imageEXIF.Orientation)
       {
@@ -145,8 +137,6 @@ bool HeifPicture::ReadTag(const std::string& file, kodi::addon::ImageDecoderInfo
                        imageEXIF.GeoLocation.LonComponents.direction, lon,
                        imageEXIF.GeoLocation.AltitudeRef, imageEXIF.GeoLocation.Altitude);
       }
-
-      free(metadata);
     }
   }
 
@@ -159,16 +149,21 @@ bool HeifPicture::LoadImageFromMemory(const std::string& mimetype,
                                       unsigned int& width,
                                       unsigned int& height)
 {
-  struct heif_error error = heif_context_read_from_memory(m_heifCtx, buffer, bufSize, nullptr);
-  if (error.code != heif_error_Ok)
+  try
   {
-    kodi::Log(ADDON_LOG_ERROR, "%s: Read error '%s'", __func__, error.message);
+    m_heifCtx->read_from_memory_without_copy(buffer, bufSize);
+  }
+  catch (heif::Error e)
+  {
+    kodi::Log(ADDON_LOG_ERROR, "%s: Read error '%s'", __func__, e.get_message().c_str());
     return false;
   }
-  heif_image_handle* handle;
-  heif_context_get_primary_image_handle(m_heifCtx, &handle);
-  width = heif_image_handle_get_width(handle);
-  height = heif_image_handle_get_height(handle);
+
+  heif::ImageHandle handle = m_heifCtx->get_primary_image_handle();
+
+  width = handle.get_width();
+  height = handle.get_height();
+
   return true;
 }
 
@@ -178,20 +173,22 @@ bool HeifPicture::Decode(uint8_t* pixels,
                          unsigned int pitch,
                          ADDON_IMG_FMT format)
 {
-  heif_image_handle* handle;
-  heif_context_get_primary_image_handle(m_heifCtx, &handle);
-  heif_image* img;
-  heif_chroma fmt = heif_chroma_interleaved_24bit;
-  struct heif_error error = heif_decode_image(handle, &img, heif_colorspace_RGB, fmt, nullptr);
+  heif::ImageHandle handle = m_heifCtx->get_primary_image_handle();
 
-  if (error.code != heif_error_Ok)
+  heif::Image img;
+
+  try
   {
-    kodi::Log(ADDON_LOG_ERROR, "%s: Decode error '%s'", __func__, error.message);
+    img = handle.decode_image(heif_colorspace_RGB, heif_chroma_interleaved_24bit);
+  }
+  catch (heif::Error e)
+  {
+    kodi::Log(ADDON_LOG_ERROR, "%s: Decode error '%s'", __func__, e.get_message().c_str());
     return false;
   }
 
   int stride;
-  const uint8_t* data = heif_image_get_plane_readonly(img, heif_channel_interleaved, &stride);
+  const uint8_t* data = img.get_plane(heif_channel_interleaved, &stride);
   if (!data)
     return false;
 
