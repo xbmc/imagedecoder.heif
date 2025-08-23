@@ -187,7 +187,7 @@ bool HeifPicture::Decode(uint8_t* pixels,
     return false;
   }
 
-  int stride;
+  size_t stride;
   const uint8_t* data = img.get_plane(heif_channel_interleaved, &stride);
   if (!data)
     return false;
