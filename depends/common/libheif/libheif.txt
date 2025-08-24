@@ -1,1 +1,1 @@
-libheif https://github.com/strukturag/libheif/releases/download/v1.17.6/libheif-1.17.6.tar.gz
+libheif https://github.com/strukturag/libheif/archive/refs/tags/v1.20.2.tar.gz
