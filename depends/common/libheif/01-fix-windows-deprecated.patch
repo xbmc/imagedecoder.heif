@@ -1,0 +1,11 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -46,6 +46,8 @@
+       add_definitions(-Wno-error=tautological-compare)
+       add_definitions(-Wno-error=tautological-constant-out-of-range-compare)
+   endif ()
++else()
++  add_definitions(-D_CRT_NONSTDC_NO_WARNINGS)
+ endif()
+ 
+ set(CMAKE_CXX_STANDARD 20)
