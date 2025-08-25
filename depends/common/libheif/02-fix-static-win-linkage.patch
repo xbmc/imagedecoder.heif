@@ -1,8 +1,8 @@
---- a/libheif/heif.h
-+++ b/libheif/heif.h
-@@ -55,9 +55,9 @@
+--- libheif-1.20.2/libheif/api/libheif/heif_library.h.orig	2025-08-24 12:06:37.536511749 +0200
++++ libheif-1.20.2/libheif/api/libheif/heif_library.h	2025-08-24 12:06:50.251187896 +0200
+@@ -51,9 +51,9 @@
  
- #if defined(_MSC_VER) && !defined(LIBHEIF_STATIC_BUILD)
+ #if (defined(_WIN32) || defined __CYGWIN__) && !defined(LIBHEIF_STATIC_BUILD)
  #ifdef LIBHEIF_EXPORTS
 -#define LIBHEIF_API __declspec(dllexport)
 +#define LIBHEIF_API
