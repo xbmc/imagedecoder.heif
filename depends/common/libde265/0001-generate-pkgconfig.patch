@@ -1,6 +1,6 @@
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -74,3 +74,11 @@
+@@ -78,3 +78,11 @@
  if (ENABLE_ENCODER)
    add_subdirectory (enc265)
  endif()
@@ -16,7 +16,7 @@
 +++ b/libde265/de265.h
 @@ -38,9 +38,9 @@
  
- #if defined(_MSC_VER) && !defined(LIBDE265_STATIC_BUILD)
+ #if (defined(_WIN32) || defined(__CYGWIN__)) && !defined(LIBDE265_STATIC_BUILD)
    #ifdef LIBDE265_EXPORTS
 -  #define LIBDE265_API __declspec(dllexport)
 +  #define LIBDE265_API
