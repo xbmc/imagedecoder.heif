@@ -187,8 +187,16 @@ bool HeifPicture::Decode(uint8_t* pixels,
     return false;
   }
 
+#if LIBHEIF_HAVE_VERSION(1,20,2)
+  size_t stride;
+  const uint8_t* data = img.get_plane2(heif_channel_interleaved, &stride);
+#elif LIBHEIF_HAVE_VERSION(1,20,0)
+  size_t stride;
+  const uint8_t* data = img.get_plane(heif_channel_interleaved, &stride);
+#else
   int stride;
   const uint8_t* data = img.get_plane(heif_channel_interleaved, &stride);
+#endif
   if (!data)
     return false;
 
