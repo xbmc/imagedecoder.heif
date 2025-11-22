@@ -43,6 +43,9 @@ bool HeifPicture::ReadTag(const std::string& file, kodi::addon::ImageDecoderInfo
   std::vector<uint8_t> buffer(length);
   fileData.Read(buffer.data(), buffer.size());
 
+  // Create a new context for each read to prevent memory leaks
+  m_heifCtx = std::make_unique<heif::Context>();
+
   try
   {
     m_heifCtx->read_from_memory_without_copy(buffer.data(), buffer.size());
@@ -149,6 +152,9 @@ bool HeifPicture::LoadImageFromMemory(const std::string& mimetype,
                                       unsigned int& width,
                                       unsigned int& height)
 {
+  // Create a new context for each load to prevent memory leaks
+  m_heifCtx = std::make_unique<heif::Context>();
+
   try
   {
     m_heifCtx->read_from_memory_without_copy(buffer, bufSize);
