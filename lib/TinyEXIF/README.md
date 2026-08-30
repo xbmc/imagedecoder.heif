@@ -34,24 +34,49 @@ int main(int argc, const char** argv) {
 ```
 See `main.cpp` for more details.
 
-## Copyright
+## Absent tags vs tags that are legitimately zero
 
-Redistribution and use in source and binary forms, with or without 
-modification, are permitted provided that the following conditions are met:
+All data fields are zero-initialised, so a value of `0` on its own does not say whether the tag
+was missing from the file or whether the camera really wrote a `0`. `HasField()` answers that,
+and `GetFields()` lists everything that was found:
 
- - Redistributions of source code must retain the above copyright notice, 
-   this list of conditions and the following disclaimer.
- - Redistributions in binary form must reproduce the above copyright notice, 
-   this list of conditions and the following disclaimer in the documentation 
- and/or other materials provided with the distribution.
+```
+	TinyEXIF::EXIFInfo imageEXIF(istream);
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY EXPRESS 
-OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES 
-OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN 
-NO EVENT SHALL THE FREEBSD PROJECT OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
-BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY 
-OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, 
-EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+	// ISOSpeedRatings == 0 alone is ambiguous, this is not
+	if (imageEXIF.HasField(TinyEXIF::FIELD_ID_ISOSpeedRatings))
+		std::cout << "ISO " << imageEXIF.ISOSpeedRatings << "\n";
+	else
+		std::cout << "ISO not recorded by the camera\n";
+
+	// list every tag that was present
+	for (TinyEXIF::FieldID id: imageEXIF.GetFields())
+		std::cout << TinyEXIF::FieldName(id) << "\n";
+```
+
+There is one `FieldID` enumerator per data field, named `FIELD_ID_` followed by the path of the
+member it fills, e.g. `FIELD_ID_GeoLocation_Altitude` for `GeoLocation.Altitude`; `FieldName()`
+returns that path as a string. A field counts as present when the tag carrying it was parsed
+successfully, from EXIF or from XMP; a tag that is present but malformed does not count.
+Existing fields, sentinel values (`DBL_MAX`, `UINT32_MAX`) and `hasXxx()` accessors are
+unchanged, so this is purely additive.
+
+Run the demo with `TinyEXIFdemo <image_file> --fields` to print the list for a file.
+
+This API was added in 1.1.0 and can be feature-gated with the `TINYEXIF_VERSION` macro:
+
+```
+	#if TINYEXIF_VERSION >= 10100
+	// TinyEXIF::EXIFInfo::HasField() is available
+	#endif
+```
+
+## License
+
+MIT [License](https://github.com/cdcseacave/TinyEXIF/blob/master/LICENSE)
+
+Copyright (c) 2025 cdcseacave
+
+## Acknowledgments
+
+Forked from [easyexif](https://github.com/mayanklahiri/easyexif) library (2013 version) of Mayank Lahiri (mlahiri@gmail.com); see [LICENSE.easyexif](https://github.com/cdcseacave/TinyEXIF/blob/master/LICENSE.easyexif) for its terms.

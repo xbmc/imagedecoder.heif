@@ -70,7 +70,11 @@ bool HeifPicture::ReadTag(const std::string& file, kodi::addon::ImageDecoderInfo
 
       TinyEXIF::EXIFInfo imageEXIF;
 
-      imageEXIF.parseFromEXIFSegment(metadata.data() + type.length(), metadata.size());
+      if (metadata.size() <= type.length())
+        continue;
+
+      imageEXIF.parseFromEXIFSegment(metadata.data() + type.length(),
+                                     metadata.size() - type.length());
 
       switch (imageEXIF.Orientation)
       {
