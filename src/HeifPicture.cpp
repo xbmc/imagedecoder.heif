@@ -201,6 +201,16 @@ bool HeifPicture::Decode(uint8_t* pixels,
   if (!data)
     return false;
 
+  const size_t bytesPerPixel = (format == ADDON_IMG_FMT_A8R8G8B8) ? 4 : 3;
+  if (height == 0 || width == 0 ||
+      static_cast<size_t>(height - 1) * pitch + static_cast<size_t>(width) * bytesPerPixel >
+          pixelBufferSize)
+  {
+    kodi::Log(ADDON_LOG_ERROR, "%s: Output buffer too small for %ux%u at pitch %u", __func__, width,
+              height, pitch);
+    return false;
+  }
+
   for (size_t i = 0; i < height; ++i)
   {
     const uint8_t* src = data + i * stride;
