@@ -168,6 +168,7 @@ bool HeifPicture::LoadImageFromMemory(const std::string& mimetype,
 }
 
 bool HeifPicture::Decode(uint8_t* pixels,
+                         size_t pixelBufferSize,
                          unsigned int width,
                          unsigned int height,
                          unsigned int pitch,
