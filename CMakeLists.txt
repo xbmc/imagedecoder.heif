@@ -4,7 +4,8 @@ project(imagedecoder.heif)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR})
 
 find_package(Kodi REQUIRED)
-find_package(de265 REQUIRED)
+# optional: system libheif may provide HEVC itself; still linked when found for static builds
+find_package(de265)
 find_package(HEIF REQUIRED)
 find_package(Threads REQUIRED)
 find_package(TinyXML2 REQUIRED)
