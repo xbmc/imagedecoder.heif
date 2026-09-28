@@ -1,0 +1,17 @@
+--- a/libheif/CMakeLists.txt
++++ b/libheif/CMakeLists.txt
+@@ -251,9 +251,13 @@
+ endif()
+
+ target_compile_definitions(heif
+-        PUBLIC
++        PRIVATE
+         LIBHEIF_EXPORTS
+         HAVE_VISIBILITY)
++
++if (NOT BUILD_SHARED_LIBS)
++    target_compile_definitions(heif PUBLIC LIBHEIF_STATIC_BUILD)
++endif()
+
+ if (PLUGIN_LOADING_SUPPORTED_AND_ENABLED)
+     target_compile_definitions(heif PRIVATE ENABLE_PLUGIN_LOADING=1)

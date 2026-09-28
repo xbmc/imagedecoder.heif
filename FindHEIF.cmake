@@ -13,6 +13,19 @@
 #
 #   HEIF::HEIF - The HEIF library
 
+# Use the exported target to preserve static build definitions and dependencies.
+find_package(libheif CONFIG QUIET)
+if(TARGET heif)
+  set(HEIF_FOUND TRUE)
+  set(HEIF_VERSION ${libheif_VERSION})
+  set(HEIF_LIBRARIES heif)
+  get_target_property(HEIF_INCLUDE_DIRS heif INTERFACE_INCLUDE_DIRECTORIES)
+  if(NOT TARGET HEIF::HEIF)
+    add_library(HEIF::HEIF ALIAS heif)
+  endif()
+  return()
+endif()
+
 if(PKG_CONFIG_FOUND)
   pkg_check_modules(PC_HEIF libheif QUIET)
 endif()
@@ -31,6 +44,7 @@ find_package_handle_standard_args(HEIF
 
 if(HEIF_FOUND)
   set(HEIF_LIBRARIES ${HEIF_LIBRARY})
+  set(HEIF_INCLUDE_DIRS ${HEIF_INCLUDE_DIR})
 
   if(NOT TARGET HEIF::HEIF)
     add_library(HEIF::HEIF UNKNOWN IMPORTED)
