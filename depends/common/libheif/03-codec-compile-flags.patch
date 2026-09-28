@@ -1,0 +1,17 @@
+--- a/libheif/plugins/CMakeLists.txt
++++ b/libheif/plugins/CMakeLists.txt
+@@ -38,8 +38,12 @@
+             endif()
+         endif ()
+
+-        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${${varName}_CFLAGS}")
+-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${${varName}_CFLAGS}")
++        separate_arguments(plugin_cflags NATIVE_COMMAND "${${varName}_CFLAGS}")
++        if (PLUGIN_LOADING_SUPPORTED_AND_ENABLED AND WITH_${optionName}_PLUGIN)
++            target_compile_options(heif-${name} PRIVATE ${plugin_cflags})
++        else()
++            target_compile_options(heif PRIVATE ${plugin_cflags})
++        endif()
+     else()
+         message("Not compiling '" ${name} "' backend")
+     endif ()
