@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="imagedecoder.heif"
-  version="22.1.2"
+  version="22.1.3"
   name="HEIF image decoder"
   provider-name="spiff">
   <requires>@ADDON_DEPENDS@</requires>
